@@ -1,0 +1,5 @@
+{"event_ts": "2024-01-01T10:00:02Z", "user_id": "U001", "event_type": "page_view", "event_attr": {"page": "/home"}}
+{"event_ts": "2024-01-01T10:00:05Z", "user_id": "U001", "event_type": "add_to_cart", "event_attr": {"sku": "1001", "qty": 1}}
+{"event_ts": "2024-01-01T10:00:10Z", "user_id": "U002", "event_type": "page_view", "event_attr": {"page": "/product/1002"}}
+{"event_ts": "2024-01-01T10:00:15Z", "user_id": "U003", "event_type": "checkout", "event_attr": {"order_id": "1003", "total": 45.00}}
+

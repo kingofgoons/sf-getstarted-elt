@@ -1,0 +1,52 @@
+-- Stages and file formats (run after 00_setup)
+USE ROLE ACCOUNTADMIN;
+USE DATABASE MLP_DEMO_DB;
+USE SCHEMA MLP_DEMO_DB.RAW;
+
+-- Internal stage for quick uploads
+CREATE OR REPLACE STAGE raw_stage;
+
+-- File formats
+CREATE OR REPLACE FILE FORMAT ff_csv_orders TYPE = CSV SKIP_HEADER = 1 FIELD_OPTIONALLY_ENCLOSED_BY='"';
+CREATE OR REPLACE FILE FORMAT ff_json_events TYPE = JSON STRIP_OUTER_ARRAY = TRUE;
+CREATE OR REPLACE FILE FORMAT ff_parquet_inventory TYPE = PARQUET;
+
+-- Storage integration for S3 (fill in role and allowed location)
+CREATE OR REPLACE STORAGE INTEGRATION mlp_s3_int
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = S3
+  ENABLED = TRUE
+  STORAGE_AWS_ROLE_ARN = '<iam_role_arn>'
+  STORAGE_ALLOWED_LOCATIONS = ('s3://mlp-demo-landing/raw/');
+
+-- Note: run DESC INTEGRATION mlp_s3_int to retrieve EXTERNAL_ID for IAM trust.
+-- Then configure AWS IAM trust with Snowflake AWS account and external ID.
+
+-- External stage pointing to S3 bucket/prefix
+CREATE OR REPLACE STAGE raw_ext_stage
+  URL='s3://mlp-demo-landing/raw/'
+  STORAGE_INTEGRATION=mlp_s3_int;
+
+-- Raw tables
+CREATE OR REPLACE TABLE ORDERS_RAW (
+  ORDER_ID STRING,
+  CUSTOMER_ID STRING,
+  ORDER_TS TIMESTAMP_NTZ,
+  AMOUNT NUMBER(10,2),
+  STATUS STRING
+);
+
+CREATE OR REPLACE TABLE EVENTS_RAW (
+  EVENT_TS TIMESTAMP_NTZ,
+  USER_ID STRING,
+  EVENT_TYPE STRING,
+  EVENT_ATTR VARIANT
+);
+
+CREATE OR REPLACE TABLE INVENTORY_RAW (
+  SKU STRING,
+  WAREHOUSE STRING,
+  QTY NUMBER,
+  UPDATED_AT TIMESTAMP_NTZ
+);
+
