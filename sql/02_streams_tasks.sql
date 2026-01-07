@@ -27,18 +27,21 @@ CREATE OR REPLACE TASK task_transform_stage
 AS
   CALL DEMO_LAB_DB.PUBLIC.SP_TRANSFORM_ORDERS();
 
--- Publish/curate step (simple example insert-select)
+-- Curated table (lives in CURATED schema)
 USE SCHEMA DEMO_LAB_DB.CURATED;
 CREATE OR REPLACE TABLE ORDER_METRICS AS SELECT * FROM DEMO_LAB_DB.STAGE.ORDERS_ENRICHED WHERE 1=0;
+
+-- All tasks in STAGE schema (task dependencies must share schema)
+USE SCHEMA DEMO_LAB_DB.STAGE;
 
 CREATE OR REPLACE TASK task_publish_curated
   WAREHOUSE = LAB_TRANSFORM_WH
   AFTER task_transform_stage
 AS
-  INSERT INTO ORDER_METRICS
+  INSERT INTO DEMO_LAB_DB.CURATED.ORDER_METRICS
   SELECT * FROM DEMO_LAB_DB.STAGE.ORDERS_ENRICHED;
 
--- Enable tasks
+-- Enable tasks (child first, then root)
+ALTER TASK DEMO_LAB_DB.STAGE.task_publish_curated RESUME;
 ALTER TASK DEMO_LAB_DB.STAGE.task_transform_stage RESUME;
-ALTER TASK DEMO_LAB_DB.CURATED.task_publish_curated RESUME;
 
