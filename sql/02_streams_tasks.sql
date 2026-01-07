@@ -19,10 +19,11 @@ CREATE OR REPLACE TABLE EVENTS_FLATTENED (
 );
 
 -- Snowpark proc will write into STAGE.*; tasks will call it
--- Task chain: task_transform_stage (AFTER stream) -> task_publish_curated (AFTER previous)
+-- Task chain: task_transform_stage (checks stream) -> task_publish_curated (AFTER previous)
 CREATE OR REPLACE TASK task_transform_stage
   WAREHOUSE = LAB_TRANSFORM_WH
-  AFTER ORDERS_RAW_STREAM
+  SCHEDULE = '1 minute'
+  WHEN SYSTEM$STREAM_HAS_DATA('DEMO_LAB_DB.RAW.ORDERS_RAW_STREAM')
 AS
   CALL DEMO_LAB_DB.PUBLIC.SP_TRANSFORM_ORDERS();
 
