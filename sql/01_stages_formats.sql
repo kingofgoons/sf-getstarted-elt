@@ -18,6 +18,9 @@ CREATE OR REPLACE FILE FORMAT ff_parquet_inventory TYPE = PARQUET;
 --        - Trust policy: allow Snowflake AWS account ID with external ID from Snowflake (see DESC INTEGRATION below).
 --        - Permissions policy: s3:ListBucket on the bucket (prefix raw/), s3:GetObject on bucket/raw/*; add Put/Delete if unload needed.
 --   3) Get the role ARN from AWS IAM console or AWS CLI (aws iam get-role --role-name SnowflakeExternalStageRole) and place it in STORAGE_AWS_ROLE_ARN.
+--
+-- FOR AN EXAMPLE OF STEP-BY-STEP configuration of an S3 bucket, Role, and Policy for Snowflake, see:
+-- https://www.snowflake.com/en/developers/guides/getting-started-with-snowpipe/#4
 CREATE OR REPLACE STORAGE INTEGRATION lab_s3_int
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = S3
