@@ -20,9 +20,7 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col, to_timestamp
 
 def main(session: Session) -> str:
-    session.use_database("DEMO_LAB_DB")
-    session.use_schema("STAGE")
-
+    # USE statements not allowed in stored procs; use fully qualified names
     orders_raw = session.table("DEMO_LAB_DB.RAW.ORDERS_RAW")
     inventory = session.table("DEMO_LAB_DB.RAW.INVENTORY_RAW")
 
@@ -33,7 +31,7 @@ def main(session: Session) -> str:
     )
 
     enriched.write.save_as_table(
-        "ORDERS_ENRICHED",
+        "DEMO_LAB_DB.STAGE.ORDERS_ENRICHED",
         mode="overwrite",
     )
 
