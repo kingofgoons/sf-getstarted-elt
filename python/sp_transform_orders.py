@@ -7,11 +7,11 @@ from snowflake.snowpark.functions import col, to_timestamp
 
 
 def main(session: Session) -> str:
-    session.use_database("MLP_DEMO_DB")
+    session.use_database("DEMO_LAB_DB")
     session.use_schema("STAGE")
 
-    orders_raw = session.table("MLP_DEMO_DB.RAW.ORDERS_RAW")
-    inventory = session.table("MLP_DEMO_DB.RAW.INVENTORY_RAW")
+    orders_raw = session.table("DEMO_LAB_DB.RAW.ORDERS_RAW")
+    inventory = session.table("DEMO_LAB_DB.RAW.INVENTORY_RAW")
 
     enriched = (
         orders_raw.join(inventory, orders_raw["ORDER_ID"] == inventory["SKU"], how="left")

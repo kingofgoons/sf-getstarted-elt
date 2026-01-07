@@ -1,7 +1,7 @@
 -- Stages and file formats (run after 00_setup)
 USE ROLE ACCOUNTADMIN;
-USE DATABASE MLP_DEMO_DB;
-USE SCHEMA MLP_DEMO_DB.RAW;
+USE DATABASE DEMO_LAB_DB;
+USE SCHEMA DEMO_LAB_DB.RAW;
 
 -- Internal stage for quick uploads
 CREATE OR REPLACE STAGE raw_stage;
@@ -12,20 +12,20 @@ CREATE OR REPLACE FILE FORMAT ff_json_events TYPE = JSON STRIP_OUTER_ARRAY = TRU
 CREATE OR REPLACE FILE FORMAT ff_parquet_inventory TYPE = PARQUET;
 
 -- Storage integration for S3 (fill in role and allowed location)
-CREATE OR REPLACE STORAGE INTEGRATION mlp_s3_int
+CREATE OR REPLACE STORAGE INTEGRATION lab_s3_int
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = S3
   ENABLED = TRUE
   STORAGE_AWS_ROLE_ARN = '<iam_role_arn>'
-  STORAGE_ALLOWED_LOCATIONS = ('s3://mlp-demo-landing/raw/');
+  STORAGE_ALLOWED_LOCATIONS = ('s3://demo-lab-landing/raw/');
 
--- Note: run DESC INTEGRATION mlp_s3_int to retrieve EXTERNAL_ID for IAM trust.
+-- Note: run DESC INTEGRATION lab_s3_int to retrieve EXTERNAL_ID for IAM trust.
 -- Then configure AWS IAM trust with Snowflake AWS account and external ID.
 
 -- External stage pointing to S3 bucket/prefix
 CREATE OR REPLACE STAGE raw_ext_stage
-  URL='s3://mlp-demo-landing/raw/'
-  STORAGE_INTEGRATION=mlp_s3_int;
+  URL='s3://demo-lab-landing/raw/'
+  STORAGE_INTEGRATION=lab_s3_int;
 
 -- Raw tables
 CREATE OR REPLACE TABLE ORDERS_RAW (

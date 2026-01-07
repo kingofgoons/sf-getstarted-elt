@@ -12,5 +12,5 @@ df.to_parquet("data-samples/inventory.parquet", index=False)
 ```
 Upload:
 - Internal: `PUT file://./data-samples/inventory.parquet @raw_stage;`
-- S3: `aws s3 cp data-samples/inventory.parquet s3://mlp-demo-landing/raw/inventory.parquet`
+- S3: `aws s3 cp data-samples/inventory.parquet s3://demo-lab-landing/raw/inventory.parquet`
 
