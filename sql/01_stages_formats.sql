@@ -12,6 +12,12 @@ CREATE OR REPLACE FILE FORMAT ff_json_events TYPE = JSON STRIP_OUTER_ARRAY = TRU
 CREATE OR REPLACE FILE FORMAT ff_parquet_inventory TYPE = PARQUET;
 
 -- Storage integration for S3 (fill in role and allowed location)
+-- AWS side setup (summary):
+--   1) Create S3 bucket/prefix, e.g. s3://demo-lab-landing/raw/
+--   2) Create IAM role (e.g. SnowflakeExternalStageRole) with:
+--        - Trust policy: allow Snowflake AWS account ID with external ID from Snowflake (see DESC INTEGRATION below).
+--        - Permissions policy: s3:ListBucket on the bucket (prefix raw/), s3:GetObject on bucket/raw/*; add Put/Delete if unload needed.
+--   3) Get the role ARN from AWS IAM console or AWS CLI (aws iam get-role --role-name SnowflakeExternalStageRole) and place it in STORAGE_AWS_ROLE_ARN.
 CREATE OR REPLACE STORAGE INTEGRATION lab_s3_int
   TYPE = EXTERNAL_STAGE
   STORAGE_PROVIDER = S3
