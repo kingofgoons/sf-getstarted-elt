@@ -8,6 +8,10 @@ Files:
 - `events.json` (semi-structured)
 - `inventory.parquet` (to be generated; see note)
 
-To generate Parquet (example):
-- Use Python/pandas locally to write `inventory.parquet` or export from a dataframe; then upload to S3 or internal stage.
+To generate Parquet:
+```bash
+pip install pandas pyarrow
+cd data-samples
+python generate_parquet.py
+```
 
