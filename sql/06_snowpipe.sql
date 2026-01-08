@@ -82,6 +82,11 @@ SHOW PIPES;
 -- For detailed steps, see:
 -- https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3
 
+--      - In the bucket, Properties -> Create event notifications (make 3):
+--          - 'lab-events-notification', with prefix 'raw/' and with suffix '.json' for the events_pipe
+--          - 'lab-inventory-notification', with prefix 'raw/' and  with suffix '.parquet' for the inventory_pipe
+--          - 'lab-orders-notification' with prefix 'raw/', and with suffix '.csv' for the orders_pipe.
+
 -- ============================================================
 -- Monitor Snowpipe
 -- ============================================================
