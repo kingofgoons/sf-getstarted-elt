@@ -1,0 +1,56 @@
+# =============================================================================
+# profiles.yml.example - DBT Profile Template
+# =============================================================================
+# Copy this file to profiles.yml and update with your credentials:
+#   cp profiles.yml.example profiles.yml
+#   export DBT_PROFILES_DIR=$(pwd)
+#
+# IMPORTANT: profiles.yml is in .gitignore - never commit credentials!
+# =============================================================================
+
+trading_lab:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      # -------------------------------------------------------------------------
+      # Connection Settings - Update with your Snowflake account details
+      # -------------------------------------------------------------------------
+      account: YOUR_ACCOUNT_IDENTIFIER  # e.g., xy12345.us-east-1
+
+      # -------------------------------------------------------------------------
+      # Authentication - Choose ONE method
+      # -------------------------------------------------------------------------
+      # Option 1: Username/Password (for testing only)
+      user: YOUR_USERNAME
+      password: YOUR_PASSWORD
+
+      # Option 2: Key Pair (recommended for production)
+      # user: YOUR_USERNAME
+      # private_key_path: /path/to/rsa_key.p8
+      # private_key_passphrase: optional_passphrase
+
+      # Option 3: SSO/Browser (for interactive use)
+      # user: YOUR_USERNAME
+      # authenticator: externalbrowser
+
+      # -------------------------------------------------------------------------
+      # Target Configuration
+      # -------------------------------------------------------------------------
+      role: DBT_TRADING_ROLE
+      warehouse: TRADING_ANALYTICS_WH
+      database: TRADING_LAB_DB
+      schema: ANALYTICS  # Default schema if model doesn't specify
+
+      # -------------------------------------------------------------------------
+      # Performance Settings
+      # -------------------------------------------------------------------------
+      threads: 4  # Parallel model execution
+      client_session_keep_alive: true
+
+      # -------------------------------------------------------------------------
+      # Optional Settings
+      # -------------------------------------------------------------------------
+      # query_tag: 'dbt_trading_lab'
+      # connect_retries: 3
+      # connect_timeout: 30

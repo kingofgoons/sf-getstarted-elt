@@ -1,0 +1,7 @@
+# DBT with Snowflake adapter
+dbt-snowflake>=1.7.0
+
+# Code quality (optional)
+sqlfluff>=2.3.0
+sqlfluff-templater-dbt>=2.3.0
+
