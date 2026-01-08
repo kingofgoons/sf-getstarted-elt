@@ -1,48 +1,50 @@
-Sample files for ingestion demos.
+# Sample Data for Snowflake Demo Lab
+
+Financial Services / Hedge Fund theme: trades, market events, positions.
 
 ## Static Sample Files
-- `orders.csv` (structured) - basic order data
-- `events.json` (semi-structured) - clickstream events
-- `inventory.parquet` (to be generated via `generate_parquet.py`)
+- `trades.csv` (structured) - sample trade orders
+- `events.json` (semi-structured) - market events
+- `positions.parquet` (to be generated via `generate_parquet.py`)
 
 Upload to internal stage:
 ```bash
-PUT file://./data-samples/orders.csv @raw_stage;
+PUT file://./data-samples/trades.csv @raw_stage;
 ```
 
 Upload to S3:
 ```bash
-aws s3 cp data-samples/orders.csv s3://demo-lab-landing/raw/
+aws s3 cp data-samples/trades.csv s3://demo-lab-landing/raw/
 ```
 
 ## Data Generators
 
 ### Generate All (Connected Data for Snowpipe Demo)
-Creates orders, events, and inventory with connected/related data:
+Creates trades, market events, and positions with connected/related data:
 
 ```bash
 pip install pandas pyarrow
 cd data-samples
-python generate_all.py --batch 1 --orders 20 --events 50 --inventory 30
+python generate_all.py --batch 1 --trades 20 --events 50 --positions 30
 ```
 
 Options:
 - `--batch N` — Batch number (affects filenames and record IDs)
-- `--orders N` — Number of order records (default: 20)
+- `--trades N` — Number of trade records (default: 20)
 - `--events N` — Number of event records (default: 50)
-- `--inventory N` — Number of inventory records (default: 30)
+- `--positions N` — Number of position records (default: 30)
 - `--output-dir DIR` — Output directory (default: `generated/`)
 
 Output files are written to `generated/` by default:
-- `generated/orders_YYYYMMDD_HHMMSS_batch001.csv`
+- `generated/trades_YYYYMMDD_HHMMSS_batch001.csv`
 - `generated/events_YYYYMMDD_HHMMSS_batch001.json`
-- `generated/inventory_YYYYMMDD_HHMMSS_batch001.parquet`
+- `generated/positions_YYYYMMDD_HHMMSS_batch001.parquet`
 
 Upload all to S3 to trigger Snowpipe:
 ```bash
-aws s3 cp generated/orders_*.csv s3://demo-lab-landing/raw/
+aws s3 cp generated/trades_*.csv s3://demo-lab-landing/raw/
 aws s3 cp generated/events_*.json s3://demo-lab-landing/raw/
-aws s3 cp generated/inventory_*.parquet s3://demo-lab-landing/raw/
+aws s3 cp generated/positions_*.parquet s3://demo-lab-landing/raw/
 ```
 
 Generate multiple batches to simulate continuous data flow:
@@ -60,4 +62,3 @@ python generate_all.py --batch 1 --output-dir /tmp/snowpipe-test
 ```bash
 python generate_parquet.py
 ```
-

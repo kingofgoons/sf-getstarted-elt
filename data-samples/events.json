@@ -1,4 +1,6 @@
-{"event_ts": "2024-01-01T10:00:02Z", "user_id": "U001", "event_type": "page_view", "event_attr": {"page": "/home"}}
-{"event_ts": "2024-01-01T10:00:05Z", "user_id": "U001", "event_type": "add_to_cart", "event_attr": {"sku": "1001", "qty": 1}}
-{"event_ts": "2024-01-01T10:00:10Z", "user_id": "U002", "event_type": "page_view", "event_attr": {"page": "/product/1002"}}
-{"event_ts": "2024-01-01T10:00:15Z", "user_id": "U003", "event_type": "checkout", "event_attr": {"order_id": "1003", "total": 45.00}}
+[
+  {"EVENT_TS": "2026-01-08 09:30:00", "SYMBOL": "AAPL", "EVENT_TYPE": "price_alert", "EVENT_ATTR": {"alert_type": "above_threshold", "threshold_price": 185.00, "current_price": 185.50, "source": "market_data"}},
+  {"EVENT_TS": "2026-01-08 09:30:15", "SYMBOL": "AAPL", "EVENT_TYPE": "order_filled", "EVENT_ATTR": {"trade_id": "TRD-SAMPLE-0001", "account_id": "ACCT-0012", "source": "trading_system"}},
+  {"EVENT_TS": "2026-01-08 09:31:22", "SYMBOL": "MSFT", "EVENT_TYPE": "order_filled", "EVENT_ATTR": {"trade_id": "TRD-SAMPLE-0002", "account_id": "ACCT-0023", "source": "trading_system"}},
+  {"EVENT_TS": "2026-01-08 09:32:00", "SYMBOL": "NVDA", "EVENT_TYPE": "earnings_release", "EVENT_ATTR": {"eps_actual": 4.25, "eps_estimate": 4.10, "surprise_pct": 3.66, "source": "market_data"}}
+]
