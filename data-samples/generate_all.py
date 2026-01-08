@@ -106,7 +106,7 @@ def main():
     parser.add_argument("--orders", type=int, default=20, help="Number of order records")
     parser.add_argument("--events", type=int, default=50, help="Number of event records")
     parser.add_argument("--inventory", type=int, default=30, help="Number of inventory records")
-    parser.add_argument("--output-dir", type=str, default=".", help="Output directory")
+    parser.add_argument("--output-dir", type=str, default="generated", help="Output directory (default: generated/)")
     args = parser.parse_args()
     
     output_dir = Path(args.output_dir)

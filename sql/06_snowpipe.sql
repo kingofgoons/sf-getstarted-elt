@@ -96,16 +96,16 @@ SHOW PIPES;
 --   pip install pandas pyarrow
 --   python generate_all.py --batch 1 --orders 20 --events 50 --inventory 30
 --
--- This creates timestamped files with related data:
---   - orders_YYYYMMDD_HHMMSS_batch001.csv      (orders with customer IDs, SKUs)
---   - events_YYYYMMDD_HHMMSS_batch001.json     (events linked to orders/customers)
---   - inventory_YYYYMMDD_HHMMSS_batch001.parquet (inventory for SKUs)
+-- Files are created in the generated/ subdirectory by default:
+--   - generated/orders_YYYYMMDD_HHMMSS_batch001.csv      (orders with customer IDs, SKUs)
+--   - generated/events_YYYYMMDD_HHMMSS_batch001.json     (events linked to orders/customers)
+--   - generated/inventory_YYYYMMDD_HHMMSS_batch001.parquet (inventory for SKUs)
 --
 -- Upload to S3 to trigger Snowpipe AUTO_INGEST:
 --
---   aws s3 cp orders_*.csv s3://demo-lab-landing/raw/
---   aws s3 cp events_*.json s3://demo-lab-landing/raw/
---   aws s3 cp inventory_*.parquet s3://demo-lab-landing/raw/
+--   aws s3 cp generated/orders_*.csv s3://demo-lab-landing/raw/
+--   aws s3 cp generated/events_*.json s3://demo-lab-landing/raw/
+--   aws s3 cp generated/inventory_*.parquet s3://demo-lab-landing/raw/
 --
 -- Generate additional batches to simulate continuous data flow:
 --
