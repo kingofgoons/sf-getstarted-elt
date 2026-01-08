@@ -24,14 +24,15 @@ USE SCHEMA RAW;
 
 -- ============================================================
 -- Create Snowpipe for orders (CSV)
+-- Note: MATCH_BY_COLUMN_NAME requires PARSE_HEADER=TRUE for CSV.
+-- Since our CSV column order matches the table, we omit it here.
 -- ============================================================
 CREATE OR REPLACE PIPE orders_pipe
   AUTO_INGEST = TRUE
 AS
   COPY INTO DEMO_LAB_DB.RAW.ORDERS_RAW
   FROM @DEMO_LAB_DB.RAW.raw_ext_stage/orders/
-  FILE_FORMAT = (FORMAT_NAME = 'ff_csv_orders')
-  MATCH_BY_COLUMN_NAME = CASE_INSENSITIVE;
+  FILE_FORMAT = (FORMAT_NAME = 'ff_csv_orders');
 
 -- ============================================================
 -- Create Snowpipe for events (JSON)
