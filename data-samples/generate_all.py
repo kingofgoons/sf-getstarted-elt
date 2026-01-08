@@ -179,7 +179,7 @@ def main():
     # Generate trades (CSV)
     trades_df = generate_trades(args.trades, batch_id)
     trades_file = output_dir / f"trades_{timestamp}_batch{batch_id}.csv"
-    trades_df.to_csv(trades_file, index=False)
+    trades_df.to_csv(trades_file, index=False, lineterminator='\n')
     print(f"Generated {trades_file} with {len(trades_df)} records")
     
     # Collect trade IDs and symbols for linked data
