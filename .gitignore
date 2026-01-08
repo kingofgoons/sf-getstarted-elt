@@ -2,5 +2,4 @@
 .DS_Store
 /PLAN.md
 /README.md
-data-samples/*.parquet
 data-samples/generated/
