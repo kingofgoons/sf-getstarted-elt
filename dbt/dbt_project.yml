@@ -1,0 +1,52 @@
+# =============================================================================
+# dbt_project.yml - Trading Lab Analytics DBT Project
+# =============================================================================
+# DBT project configuration for financial services analytics models
+
+name: 'trading_lab_analytics'
+version: '1.0.0'
+config-version: 2
+
+# Project paths
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Target schema (set in profiles.yml)
+profile: 'trading_lab'
+
+# Clean targets
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Model configurations
+models:
+  trading_lab_analytics:
+    # Staging models - create views in STAGING schema
+    staging:
+      +materialized: view
+      +schema: STAGING
+      +tags: ['staging']
+    
+    # Intermediate models - ephemeral (no schema needed)
+    intermediate:
+      +materialized: ephemeral
+      +tags: ['intermediate']
+    
+    # Mart models - create tables in ANALYTICS schema
+    marts:
+      +materialized: table
+      +schema: ANALYTICS
+      +tags: ['marts']
+
+# Variables
+vars:
+  # Date range for incremental models
+  lookback_days: 30
+  
+  # Default currency
+  base_currency: 'USD'

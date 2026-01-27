@@ -1,0 +1,75 @@
+version: 2
+
+sources:
+  - name: curated
+    description: "Curated layer from Snowflake ELT pipeline"
+    database: TRADING_LAB_DB
+    schema: CURATED
+    tables:
+      - name: TRADE_METRICS
+        description: "Daily aggregated trade metrics by account and symbol"
+        columns:
+          - name: METRIC_DATE
+            description: "Trading date"
+            data_tests:
+              - not_null
+          - name: ACCOUNT_ID
+            description: "Trading account identifier"
+            data_tests:
+              - not_null
+          - name: SYMBOL
+            description: "Ticker symbol"
+            data_tests:
+              - not_null
+          - name: BUY_QUANTITY
+            description: "Total shares bought"
+          - name: SELL_QUANTITY
+            description: "Total shares sold"
+          - name: TOTAL_NOTIONAL
+            description: "Total notional value in USD"
+          - name: TOTAL_REALIZED_PNL
+            description: "Total realized profit/loss"
+          - name: TRADE_COUNT
+            description: "Number of trades executed"
+          - name: _UPDATED_AT
+            description: "Last update timestamp"
+
+      - name: POSITION_SUMMARY
+        description: "Current position summary with unrealized P&L"
+        columns:
+          - name: ACCOUNT_ID
+            description: "Trading account identifier"
+            data_tests:
+              - not_null
+          - name: SYMBOL
+            description: "Ticker symbol"
+            data_tests:
+              - not_null
+          - name: QUANTITY
+            description: "Position size (negative = short)"
+          - name: AVG_COST
+            description: "Average cost basis per share"
+          - name: MARKET_VALUE
+            description: "Current market value"
+          - name: UNREALIZED_PNL
+            description: "Unrealized profit/loss"
+          - name: AS_OF_DATE
+            description: "Position snapshot date"
+          - name: SECTOR
+            description: "Industry sector"
+          - name: ASSET_CLASS
+            description: "Asset classification"
+          - name: _UPDATED_AT
+            description: "Last update timestamp"
+
+  - name: raw
+    description: "Raw data layer"
+    database: TRADING_LAB_DB
+    schema: RAW
+    tables:
+      - name: TRADES_RAW
+        description: "Raw trade execution records"
+      - name: POSITIONS_RAW
+        description: "Raw EOD position snapshots"
+      - name: MARKET_EVENTS_RAW
+        description: "Raw market events (prices, dividends, halts)"

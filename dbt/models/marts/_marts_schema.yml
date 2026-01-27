@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: fct_daily_pnl
+    description: |
+      Daily P&L by account and symbol. Combines realized gains from trades
+      with unrealized gains from current positions.
+    columns:
+      - name: trade_date
+        description: "Trading date"
+        data_tests:
+          - not_null
+      - name: account_id
+        description: "Trading account identifier"
+        data_tests:
+          - not_null
+      - name: symbol
+        description: "Ticker symbol"
+        data_tests:
+          - not_null
+      - name: total_pnl
+        description: "Total P&L (realized + unrealized)"
+      - name: pnl_status
+        description: "PROFIT, LOSS, or BREAKEVEN"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['PROFIT', 'LOSS', 'BREAKEVEN']
+
+  - name: dim_instruments
+    description: |
+      Reference dimension for traded instruments with sector classification
+      and aggregate trading statistics.
+    columns:
+      - name: symbol
+        description: "Ticker symbol (primary key)"
+        data_tests:
+          - unique
+          - not_null
+      - name: sector
+        description: "Industry sector"
+      - name: asset_class
+        description: "Asset classification"
+      - name: trading_activity_level
+        description: "HIGH, MEDIUM, LOW, or NONE based on trade count"
+
+  - name: fct_account_summary
+    description: |
+      Account-level summary of trading activity and P&L.
+      Useful for portfolio reporting and performance analysis.
+    columns:
+      - name: account_id
+        description: "Trading account identifier (primary key)"
+        data_tests:
+          - unique
+          - not_null
+      - name: total_pnl
+        description: "Total P&L across all positions"
+      - name: win_rate_pct
+        description: "Percentage of profitable positions"
+      - name: account_status
+        description: "PROFITABLE or LOSING"

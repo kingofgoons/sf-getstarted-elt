@@ -1,0 +1,522 @@
+[
+  {
+    "EVENT_TS": "2026-01-07 15:01:45",
+    "SYMBOL": "META",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "critical"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:54:54",
+    "SYMBOL": "T-BILL-3M",
+    "EVENT_TYPE": "settlement_complete",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:26:44",
+    "SYMBOL": "BND",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "critical"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:38:59",
+    "SYMBOL": "T-BILL-3M",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "high",
+      "account_id": "ACCT-0011",
+      "required_amount": 464808.93
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:56:29",
+    "SYMBOL": "META",
+    "EVENT_TYPE": "earnings_release",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "critical",
+      "eps_actual": 2.66,
+      "eps_estimate": 1.91,
+      "surprise_pct": 17.88
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:31:29",
+    "SYMBOL": "T-NOTE-2Y",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "medium",
+      "dividend_amount": 1.39,
+      "ex_date": "2026-01-31"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:54:48",
+    "SYMBOL": "T-BILL-3M",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "critical",
+      "dividend_amount": 0.9,
+      "ex_date": "2026-02-03"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:51:13",
+    "SYMBOL": "XLE",
+    "EVENT_TYPE": "order_filled",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high",
+      "trade_id": "TRD-001-0004",
+      "account_id": "ACCT-0047"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:49:12",
+    "SYMBOL": "AAPL",
+    "EVENT_TYPE": "settlement_complete",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "low"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:39:47",
+    "SYMBOL": "WMT",
+    "EVENT_TYPE": "earnings_release",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "critical",
+      "eps_actual": 4.19,
+      "eps_estimate": 1.72,
+      "surprise_pct": -14.15
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:24:52",
+    "SYMBOL": "XLE",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "high"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:55:43",
+    "SYMBOL": "AGG",
+    "EVENT_TYPE": "order_placed",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "critical",
+      "trade_id": "TRD-001-0007",
+      "account_id": "ACCT-0032"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:28:00",
+    "SYMBOL": "AGG",
+    "EVENT_TYPE": "settlement_complete",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "critical"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:52:26",
+    "SYMBOL": "KO",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high",
+      "account_id": "ACCT-0035",
+      "required_amount": 417267.5
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 15:01:56",
+    "SYMBOL": "AGG",
+    "EVENT_TYPE": "price_alert",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "low",
+      "alert_type": "below_threshold",
+      "threshold_price": 146.43,
+      "current_price": 229.74
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:22:46",
+    "SYMBOL": "T-BILL-3M",
+    "EVENT_TYPE": "corporate_action",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "low"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:52:36",
+    "SYMBOL": "VTI",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "critical",
+      "account_id": "ACCT-0027",
+      "required_amount": 149201.9
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:27:18",
+    "SYMBOL": "IWM",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "high",
+      "dividend_amount": 0.86,
+      "ex_date": "2026-01-25"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:32:39",
+    "SYMBOL": "IWM",
+    "EVENT_TYPE": "corporate_action",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "high"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:09:28",
+    "SYMBOL": "ABBV",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "medium"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 15:04:35",
+    "SYMBOL": "T-NOTE-2Y",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "high",
+      "account_id": "ACCT-0049",
+      "required_amount": 478218.66
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:23:59",
+    "SYMBOL": "AGG",
+    "EVENT_TYPE": "order_filled",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "low",
+      "trade_id": "TRD-001-0004",
+      "account_id": "ACCT-0005"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:33:55",
+    "SYMBOL": "AAPL",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "critical",
+      "dividend_amount": 2.48,
+      "ex_date": "2026-01-21"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:51:59",
+    "SYMBOL": "XLE",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "low"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:51:59",
+    "SYMBOL": "AGG",
+    "EVENT_TYPE": "order_placed",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "low",
+      "trade_id": "TRD-001-0005",
+      "account_id": "ACCT-0038"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:36:04",
+    "SYMBOL": "T-BOND-30Y",
+    "EVENT_TYPE": "earnings_release",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "medium",
+      "eps_actual": 4.27,
+      "eps_estimate": 4.34,
+      "surprise_pct": 3.53
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:16:26",
+    "SYMBOL": "AGG",
+    "EVENT_TYPE": "order_placed",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "low",
+      "trade_id": "TRD-001-0017",
+      "account_id": "ACCT-0016"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:27:30",
+    "SYMBOL": "T-NOTE-2Y",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "high",
+      "dividend_amount": 0.27,
+      "ex_date": "2026-01-19"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:31:20",
+    "SYMBOL": "MA",
+    "EVENT_TYPE": "price_alert",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "low",
+      "alert_type": "below_threshold",
+      "threshold_price": 141.24,
+      "current_price": 108.08
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:53:19",
+    "SYMBOL": "T-NOTE-2Y",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "low",
+      "account_id": "ACCT-0006",
+      "required_amount": 105176.29
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:06:20",
+    "SYMBOL": "T-NOTE-2Y",
+    "EVENT_TYPE": "settlement_complete",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:54:48",
+    "SYMBOL": "PFE",
+    "EVENT_TYPE": "order_filled",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "medium",
+      "trade_id": "TRD-001-0007",
+      "account_id": "ACCT-0027"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:55:30",
+    "SYMBOL": "ABBV",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "critical"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:54:16",
+    "SYMBOL": "HD",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "high",
+      "account_id": "ACCT-0014",
+      "required_amount": 324117.38
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:28:59",
+    "SYMBOL": "XLE",
+    "EVENT_TYPE": "price_alert",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "medium",
+      "alert_type": "below_threshold",
+      "threshold_price": 444.38,
+      "current_price": 272.09
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:42:30",
+    "SYMBOL": "PFE",
+    "EVENT_TYPE": "corporate_action",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "critical"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:44:00",
+    "SYMBOL": "HD",
+    "EVENT_TYPE": "corporate_action",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "high"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:32:17",
+    "SYMBOL": "AGG",
+    "EVENT_TYPE": "order_cancelled",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "critical",
+      "trade_id": "TRD-001-0012",
+      "account_id": "ACCT-0034"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:25:43",
+    "SYMBOL": "PFE",
+    "EVENT_TYPE": "order_placed",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "critical",
+      "trade_id": "TRD-001-0002",
+      "account_id": "ACCT-0004"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:49:02",
+    "SYMBOL": "T-BILL-3M",
+    "EVENT_TYPE": "order_placed",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "high",
+      "trade_id": "TRD-001-0011",
+      "account_id": "ACCT-0042"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:28:58",
+    "SYMBOL": "ABBV",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high",
+      "dividend_amount": 0.32,
+      "ex_date": "2026-02-04"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:14:47",
+    "SYMBOL": "ABBV",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "critical"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:17:14",
+    "SYMBOL": "KO",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:08:55",
+    "SYMBOL": "T-BOND-30Y",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "critical"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:10:40",
+    "SYMBOL": "KO",
+    "EVENT_TYPE": "rebalance_triggered",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:29:42",
+    "SYMBOL": "MA",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "market_data",
+      "priority": "critical",
+      "dividend_amount": 0.21,
+      "ex_date": "2026-01-21"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:12:21",
+    "SYMBOL": "T-BILL-3M",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "risk_engine",
+      "priority": "medium",
+      "account_id": "ACCT-0006",
+      "required_amount": 151952.08
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:54:51",
+    "SYMBOL": "PFE",
+    "EVENT_TYPE": "order_filled",
+    "EVENT_ATTR": {
+      "source": "compliance",
+      "priority": "critical",
+      "trade_id": "TRD-001-0012",
+      "account_id": "ACCT-0048"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 14:10:53",
+    "SYMBOL": "AAPL",
+    "EVENT_TYPE": "dividend_announced",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "high",
+      "dividend_amount": 1.26,
+      "ex_date": "2026-01-22"
+    }
+  },
+  {
+    "EVENT_TS": "2026-01-07 15:01:27",
+    "SYMBOL": "ABBV",
+    "EVENT_TYPE": "margin_call",
+    "EVENT_ATTR": {
+      "source": "trading_system",
+      "priority": "medium",
+      "account_id": "ACCT-0028",
+      "required_amount": 38570.0
+    }
+  }
+]
